@@ -11,4 +11,5 @@ Nie na wszystko co chciałem zrobić wystarczyło mi czasu :(
 - style
 - zmienne środowiskowe
 - odświeżanie tokena
+- testy
 - itd.
