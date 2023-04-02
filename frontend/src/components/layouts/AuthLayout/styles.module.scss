@@ -1,0 +1,31 @@
+@import 'styles/colors.scss';
+
+.authLayout{
+  display: grid;
+  grid-template-columns: minmax(400px, 600px) 1fr;
+  min-height: 100vh;
+  .left{
+    position: relative;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .formContainer{
+      transform: translateX(50%);
+      z-index: 1;
+    }
+  }
+  .right{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-piggy-pink;
+    img{
+      display: block;
+      width: 540px;
+      height: auto;
+      transform: translateX(50%);
+    }
+  }
+}
