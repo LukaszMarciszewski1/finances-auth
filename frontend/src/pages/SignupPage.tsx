@@ -1,14 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { User } from 'models/user';
 import { useAuth } from 'context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 import AuthLayout from 'components/layouts/AuthLayout/AuthLayout';
 import AuthFormCard from 'components/AuthFormCard/AuthFormCard';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
 
-const SignupPage = () => {
+const SignupPage: React.FC = () => {
   const { signUp } = useAuth();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,8 +22,8 @@ const SignupPage = () => {
     const { name, email, password } = data;
     try {
       await signUp(name, email, password);
+      navigate('/login');
     } catch (err) {
-      alert('Oops, something went wrong! Try again later');
       console.log(err);
     }
   };
@@ -53,7 +55,7 @@ const SignupPage = () => {
             type='password'
             {...register('password', { required: true })}
           />
-          <Button title={'Sign In'} type='submit' />
+          <Button title={'Sign up'} type='submit' />
         </form>
       </AuthFormCard>
     </AuthLayout>

@@ -34,6 +34,7 @@ export const AuthContextProvider: React.FC<AuthProviderProps> = ({
         password,
       });
     } catch (e) {
+      alert('Oops, something went wrong! Try again later');
       console.log(e)
     }
   };
@@ -48,6 +49,7 @@ export const AuthContextProvider: React.FC<AuthProviderProps> = ({
       setUser(response.data);
       localStorage.setItem('token', response.data.token);
     } catch (e) {
+      alert('Invalid email or password');
       console.log(e)
     }
   };

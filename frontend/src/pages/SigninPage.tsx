@@ -9,12 +9,13 @@ import AuthFormCard from 'components/AuthFormCard/AuthFormCard';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
 
-const SigninPage = () => {
+const SigninPage: React.FC = () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<User>();
 
@@ -23,8 +24,8 @@ const SigninPage = () => {
     try {
       await signIn(email, password);
       navigate('/');
+      reset();
     } catch (err) {
-      alert('Invalid email or password');
       console.log(err);
     }
   };
@@ -46,7 +47,6 @@ const SigninPage = () => {
             label={'Email'}
             type='email'
             {...register('email', { required: true })}
-            error={errors.email && <span>Required</span>}
             style={{ marginBottom: '1.5rem' }}
           />
           <Input
@@ -56,7 +56,7 @@ const SigninPage = () => {
             type='password'
             {...register('password', { required: true })}
           />
-          <Button title={'Sign In'} type='submit' />
+          <Button title={'Sign in'} type='submit' />
         </form>
       </AuthFormCard>
     </AuthLayout>

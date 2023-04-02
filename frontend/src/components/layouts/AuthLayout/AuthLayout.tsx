@@ -13,7 +13,9 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
         <div className={styles.formContainer}>{children}</div>
       </div>
       <div className={styles.right}>
-        <img src={pigImg} />
+        <div className={styles.imgContainer}>
+          <img src={pigImg} />
+        </div>
       </div>
     </div>
   );

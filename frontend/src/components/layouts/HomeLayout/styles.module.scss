@@ -1,0 +1,21 @@
+@import 'styles/colors.scss';
+
+.homeLayout{
+  text-align: center;
+  padding: 3rem;
+  min-height: 100vh;
+  background-color: $secondary-piggy-pink;
+  main{
+    margin-top: 3rem;
+    h2{
+      font-size: 3rem;
+      font-weight: 600;
+      strong{
+        font-weight: 800;
+      }
+    }
+  }
+  .imgContainer{
+    margin-top: 5rem;
+  }
+}
