@@ -1,0 +1,20 @@
+@import 'styles/colors.scss';
+
+.button {
+  display: inline-block;
+  min-width: 140px;
+  border: none;
+  padding: 0.9rem 1rem;
+  background-color: $primary-piggy-pink;
+  border-radius: 1.5rem;
+  transition: 0.2s;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 3rem;
+  &:hover {
+    background-color: darken($primary-piggy-pink, 5%);
+  }
+  &:disabled {
+    background-color: rgb(230, 230, 230);
+  }
+}

@@ -1,0 +1,46 @@
+@import 'styles/colors.scss';
+@import 'styles/breakpoints.scss';
+
+.authLayout {
+  display: grid;
+  grid-template-columns: minmax(10vw, 30vw) auto;
+  height: 100vh;
+  @media (max-width: $lg) {
+    grid-template-columns: 1fr;
+  }
+  .left {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media (max-width: $lg) {
+      background-color: $secondary-piggy-pink;
+      justify-content: center;
+    }
+    .formContainer {
+      transform: translateX(50%);
+      z-index: 1;
+      @media (max-width: $lg) {
+        transform: translateX(0);
+      }
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-piggy-pink;
+    .imgContainer {
+      max-width: 600px;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transform: translateX(30%);
+      }
+    }
+    @media (max-width: $lg) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import 'styles/colors.scss';
+@import 'styles/breakpoints.scss';
+
+.authFormCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  width: 600px;
+  background-color: white;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 5px 14px -4px rgba(66, 68, 90, 0.56);
+  -moz-box-shadow: 0px 5px 14px -4px rgba(66, 68, 90, 0.56);
+  box-shadow: 0px 5px 14px -4px rgba(66, 68, 90, 0.56);
+  @media (max-width: $md) {
+    padding: 2rem;
+    width: 350px;
+  }
+  h1 {
+    color: $primary-piggy-pink;
+    font-size: 2.25rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  .formContent {
+    margin-top: 3rem;
+    h2 {
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+      margin-top: 0.5rem;
+    }
+    span {
+      color: $primary-grey;
+    }
+    a {
+      margin-left: 0.5rem;
+      font-size: 1.1rem;
+      color: $primary-piggy-pink;
+      &:hover {
+        color: darken($primary-piggy-pink, 5%);
+      }
+    }
+    .formContainer {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .linkContainer {
+      text-align: center;
+    }
+  }
+}
