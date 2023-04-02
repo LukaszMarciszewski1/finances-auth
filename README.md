@@ -10,4 +10,5 @@ Nie na wszystko co chciałem zrobić wystarczyło mi czasu :(
 - walidacja
 - style
 - zmienne środowiskowe
+- odświeżanie tokena
 - itd.
