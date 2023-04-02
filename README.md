@@ -4,8 +4,8 @@ Nie na wszystko co chciałem zrobić wystarczyło mi czasu :(
 
 ## Logowanie
 
-email: email@test
-password: Password
+- email: email@test
+- password: Password
 
 ## ⚡ Funkcjonalności
 - logowanie
