@@ -10,31 +10,29 @@ interface AuthContextData {
   user: User | null;
   signIn: (email: string, password: string) => Promise<any>;
   signUp: (name: string, email: string, password: string) => Promise<any>;
-  logout: () => Promise<any>;
+  logout: () => void;
 }
 
 export const AuthContext = createContext<AuthContextData>({
   user: null,
   signIn: async () => {},
   signUp: async () => {},
-  logout: async () => {},
+  logout: () => {},
 });
 
 export const AuthContextProvider: React.FC<AuthProviderProps> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
-  console.log(user)
 
   const signUp = async (name: string, email: string, password: string) => {
     if (!name && !email && !password) return;
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', {
+      await axios.post('http://localhost:5000/auth/register', {
         name,
         email,
         password,
       });
-      setUser(response.data);
     } catch (e) {
       console.log(e)
     }
@@ -48,14 +46,16 @@ export const AuthContextProvider: React.FC<AuthProviderProps> = ({
         password,
       });
       setUser(response.data);
+      localStorage.setItem('token', response.data.token);
     } catch (e) {
       console.log(e)
     }
   };
 
-  const logout = async () => {};
-
-  useEffect(() => {}, []);
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('token');
+  };
 
   const value = {
     user,

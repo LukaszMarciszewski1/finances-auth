@@ -6,10 +6,11 @@ export type InputProps = {
   name?: string;
   label: string;
   type: 'text' | 'email' | 'password';
-  placeholder?: string;
+  placeholder: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: {} | undefined | ((e: React.ChangeEvent<HTMLInputElement>) => void);
   value?: number | string;
+  style?: {}
 };
 
 const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
@@ -23,12 +24,13 @@ const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
       value,
       error,
       onChange,
+      style,
       ...props
     },
     ref
   ) => {
     return (
-      <div className={styles.input}>
+      <div className={styles.inputContainer}>
         <label htmlFor={id}>{label}</label>
         <input
           id={id}
@@ -39,6 +41,7 @@ const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
           className={error && styles.error}
           placeholder={placeholder}
           onChange={onChange}
+          style={style}
           {...props}
         />
       </div>

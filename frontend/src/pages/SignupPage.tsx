@@ -3,7 +3,7 @@ import { User } from 'models/user';
 import { useAuth } from 'context/AuthContext';
 
 import AuthLayout from 'components/layouts/AuthLayout/AuthLayout';
-import FormAuthLayout from 'components/layouts/FormAuthLayout/FormAuthLayout';
+import AuthFormCard from 'components/AuthFormCard/AuthFormCard';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
 
@@ -17,7 +17,7 @@ const SignupPage = () => {
   } = useForm<User>();
 
   const handleSubmitForm = async (data: User) => {
-    const {name, email, password} = data
+    const { name, email, password } = data;
     try {
       await signUp(name, email, password);
     } catch (err) {
@@ -25,18 +25,18 @@ const SignupPage = () => {
       console.log(err);
     }
   };
-  
+
   return (
     <AuthLayout>
-      <FormAuthLayout>
-        <h2 style={{ fontSize: 40 }}>Sign In</h2>
+      <AuthFormCard title={'Sign up'} path={'/login'} linkName={'Sign in'}>
         <form onSubmit={handleSubmit(handleSubmitForm)}>
-        <Input
+          <Input
             id={'name'}
             placeholder={'name'}
             label={'User name'}
             type='text'
             {...register('name', { required: true })}
+            style={{ marginBottom: '1.5rem' }}
           />
           <Input
             id={'email'}
@@ -44,6 +44,7 @@ const SignupPage = () => {
             label={'Email'}
             type='email'
             {...register('email', { required: true })}
+            style={{ marginBottom: '1.5rem' }}
           />
           <Input
             id={'password'}
@@ -54,7 +55,7 @@ const SignupPage = () => {
           />
           <Button title={'Sign In'} type='submit' />
         </form>
-      </FormAuthLayout>
+      </AuthFormCard>
     </AuthLayout>
   );
 };

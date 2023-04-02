@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { useAuth, AuthContextProvider } from 'context/AuthContext';
 
 import Home from 'pages/Home';
@@ -6,7 +7,13 @@ import SigninPage from 'pages/SigninPage';
 import SignupPage from 'pages/SignupPage';
 
 function App() {
-  const { user } = useAuth();
+
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if(user){
+  //     navigate('/')
+  //   }
+  // }, []);
 
   return (
     <AuthContextProvider>

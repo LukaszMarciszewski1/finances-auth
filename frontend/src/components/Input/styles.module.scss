@@ -1,21 +1,21 @@
 @import 'styles/colors.scss';
 
-.input {
-  width: 100%;
+.inputContainer {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  text-align: left;
   label {
-    // @include label;
+    margin-bottom: 0.4rem;
   }
   input {
     outline: none;
     border: none;
-    padding: .5rem;
-    border-radius: 10px;
+    padding: .9rem;
+    border-radius: .5rem;
     background-color: $secondary-piggy-pink;
     border: none;
-    font-size: 14px;
-    height: 40px;
+    font-size: 1rem;
     &:focus {
       border: 1px solid $primary-piggy-pink;
       background-color: darken($secondary-piggy-pink, 5%);

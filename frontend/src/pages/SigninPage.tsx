@@ -1,14 +1,17 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { User } from 'models/user';
 import { useAuth } from 'context/AuthContext';
 
 import AuthLayout from 'components/layouts/AuthLayout/AuthLayout';
-import FormAuthLayout from 'components/layouts/FormAuthLayout/FormAuthLayout';
+import AuthFormCard from 'components/AuthFormCard/AuthFormCard';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
 
 const SigninPage = () => {
   const { signIn } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,16 +22,23 @@ const SigninPage = () => {
     const { email, password } = data;
     try {
       await signIn(email, password);
+      navigate('/');
     } catch (err) {
       alert('Invalid email or password');
       console.log(err);
     }
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/');
+    }
+  }, []);
+
   return (
     <AuthLayout>
-      <FormAuthLayout>
-        <h2 style={{ fontSize: 40 }}>Sign In</h2>
+      <AuthFormCard title={'Sign in'} path={'/register'} linkName={'Sign up'}>
         <form onSubmit={handleSubmit(handleSubmitForm)}>
           <Input
             id={'email'}
@@ -36,6 +46,8 @@ const SigninPage = () => {
             label={'Email'}
             type='email'
             {...register('email', { required: true })}
+            error={errors.email && <span>Required</span>}
+            style={{ marginBottom: '1.5rem' }}
           />
           <Input
             id={'password'}
@@ -46,7 +58,7 @@ const SigninPage = () => {
           />
           <Button title={'Sign In'} type='submit' />
         </form>
-      </FormAuthLayout>
+      </AuthFormCard>
     </AuthLayout>
   );
 };
