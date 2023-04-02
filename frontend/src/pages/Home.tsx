@@ -1,5 +1,5 @@
 import { useAuth } from 'context/AuthContext';
-import HomeLayout from 'components/layouts/HomeLayout/HomeLayout';
+import HomeLayout from 'layouts/HomeLayout/HomeLayout';
 import Button from 'components/Button/Button';
 import people from 'assets/img/people.svg';
 

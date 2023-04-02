@@ -15,7 +15,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ children, image }) => {
       </header>
       <main>{children}</main>
       <div className={styles.imgContainer}>
-        <img src={image} />
+        <img src={image} alt='img'/>
       </div>
     </div>
   );

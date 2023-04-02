@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { User } from 'models/user';
 import { useAuth } from 'context/AuthContext';
 
-import AuthLayout from 'components/layouts/AuthLayout/AuthLayout';
+import AuthLayout from 'layouts/AuthLayout/AuthLayout';
 import AuthFormCard from 'components/AuthFormCard/AuthFormCard';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';

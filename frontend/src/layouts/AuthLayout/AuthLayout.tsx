@@ -14,7 +14,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
       </div>
       <div className={styles.right}>
         <div className={styles.imgContainer}>
-          <img src={pigImg} />
+          <img src={pigImg} alt='img'/>
         </div>
       </div>
     </div>
